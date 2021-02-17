@@ -64,4 +64,10 @@
     <Build Include="tables\ProductCategories.sql" />
     <Build Include="tables\OutcomeProduct.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Test.sql" />
+  </ItemGroup>
 </Project>

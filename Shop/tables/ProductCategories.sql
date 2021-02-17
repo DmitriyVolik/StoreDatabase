@@ -1,6 +1,6 @@
-﻿CREATE TABLE [dbo].[ProductCategories] (
+﻿CREATE TABLE [dbo].[Categories] (
     [Id]   INT           IDENTITY (1, 1) NOT NULL,
-    [Name] NVARCHAR (50) NOT NULL,
+    [Title] NVARCHAR (50) NOT NULL,
     CONSTRAINT [ProductCategories_pk] PRIMARY KEY NONCLUSTERED ([Id] ASC)
 );
 
