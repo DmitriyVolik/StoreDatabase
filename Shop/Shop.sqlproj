@@ -57,17 +57,32 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="tables" />
+    <Folder Include="procedures" />
+    <Folder Include="Functions" />
+    <Folder Include="Views" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="tables\IncomeProduct.sql" />
     <Build Include="tables\Products.sql" />
     <Build Include="tables\ProductCategories.sql" />
+    <Build Include="tables\Payments.sql" />
+    <Build Include="tables\Orders.sql" />
+    <Build Include="tables\OrderProducts.sql" />
     <Build Include="tables\OutcomeProduct.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <PostDeploy Include="PostDeployment.sql" />
+    <Build Include="procedures\PerformOutcomeProduct.sql" />
+    <Build Include="procedures\CloseOrder.sql" />
+    <Build Include="procedures\КопияPerformIncomeProduct.sql" />
+    <Build Include="Functions\GetProductQuantity.sql" />
+    <Build Include="Functions\GetOrderAmount.sql" />
+    <Build Include="Views\CategoryBalance.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Test.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="Shop.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="PostDeployment.sql" />
   </ItemGroup>
 </Project>

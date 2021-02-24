@@ -1,8 +1,12 @@
-﻿CREATE TABLE [dbo].[OutcomeProduct]
-(
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Time] DATE NOT NULL DEFAULT GETDATE(),
-	ProductId INT NOT NULL,
-    [Quantity]  INT   NOT NULL CHECK (Quantity >0),
-    [Price]     MONEY NOT NULL CHECK (Quantity >0),
-)
+﻿CREATE TABLE [dbo].[OutcomeProduct] (
+    [Id]        INT   IDENTITY (1, 1) NOT NULL,
+    [Date]      DATE  DEFAULT (getdate()) NOT NULL,
+    [ProductId] INT   NOT NULL,
+    [Quantity]  INT   NOT NULL,
+    [Price]     MONEY NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC),
+    CHECK ([Quantity]>(0)),
+    CHECK ([Quantity]>(0)), 
+    CONSTRAINT [FK_OutcomeProduct_ToProduct] FOREIGN KEY (ProductId) REFERENCES [Products]([Id])
+);
+
