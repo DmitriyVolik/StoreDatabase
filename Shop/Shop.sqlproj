@@ -100,6 +100,12 @@
     <WarningLevel>4</WarningLevel>
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DATABASE|AnyCPU' ">
+    <OutputPath>bin\DATABASE\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DATABASE|x64' ">
+    <OutputPath>bin\DATABASE\</OutputPath>
+  </PropertyGroup>
   <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
@@ -108,6 +114,7 @@
     <Folder Include="procedures" />
     <Folder Include="Functions" />
     <Folder Include="Views" />
+    <Folder Include="Triggers" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="tables\IncomeProduct.sql" />
@@ -123,6 +130,11 @@
     <Build Include="Functions\GetProductQuantity.sql" />
     <Build Include="Functions\GetOrderAmount.sql" />
     <Build Include="Views\CategoryBalance.sql" />
+    <Build Include="Views\Orders.sql" />
+    <Build Include="Views\ProductQuantity.sql" />
+    <Build Include="Views\PaymentBalance.sql" />
+    <Build Include="Triggers\UpdateOrder.sql" />
+    <Build Include="Triggers\DeleteOrder.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Test.sql" />
