@@ -25,8 +25,14 @@ namespace Store.DataBaseModels
         {
             get { return this._Category.Entity; }
             set { 
-                this._Category.Entity = value; 
+                this._Category.Entity = value;
+                CategoryId = ((Category)value).Id;
             }
+        }
+
+        public Product Clone()
+        {
+            return new Product { CategoryId = CategoryId, Title = Title, Price = Price, Category = Category };
         }
     }
 }

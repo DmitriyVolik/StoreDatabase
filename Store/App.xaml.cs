@@ -15,8 +15,6 @@ namespace Store
     /// </summary>
     public partial class App : Application
     {
-
-
         public static DataContext database =
             new DataContext(@"Data Source=.\SQLEXPRESS;Initial Catalog=Shop;Integrated Security=True");
     }

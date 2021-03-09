@@ -13,8 +13,6 @@ namespace Store.Models
     //Уже не нужнен
     public class Database
     {
-        private string _connectionString;
-
         //private SqlDataAdapter adapter;
         //private DataSet ds;
 
@@ -57,10 +55,10 @@ namespace Store.Models
 
         DataContext db;
 
-        public Database(string connectionString)
-        {
-            //_connectionString = connectionString;
-            db = new DataContext(_connectionString);
-        }
+        //public Database(string connectionString)
+        //{
+        //    //_connectionString = connectionString;
+        //    db = new DataContext(_connectionString);
+        //}
     }
 }

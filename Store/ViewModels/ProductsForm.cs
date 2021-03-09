@@ -1,22 +1,51 @@
 ﻿using Store.DataBaseModels;
+using Store.Views;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.Linq;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Forms;
 
 namespace Store.ViewModels
 {
     class ProductsForm : BaseViewModel
     {
-        public IEnumerable<Product> Products { get; set; }
+        private ProductViewModel _currentProduct;
+        public ProductViewModel CurrentProduct
+        {
+            get => _currentProduct;
+            set
+            {
+                _currentProduct = value;
+                OnPropertyChanged("CurrentProduct");
+            }
+        }
+
+        public ObservableCollection<ProductViewModel> Products { get; set; } = new ObservableCollection<ProductViewModel>();
+
+        public ObservableCollection<Category> Categories { get; set; } = new ObservableCollection<Category>();
 
         public ProductsForm()
         {
-            Products = App.database.GetTable<Product>();
+            foreach (var item in App.database.GetTable<Product>())
+            {
+                Products.Add(new ProductViewModel(item));
+            }
+
+            IEnumerable<Category> temp = App.database.GetTable<Category>().ToList();
+
+            foreach (var item in temp)
+            {
+                Categories.Add(item);
+            }
+            //MessageBox.Show(Categories[0].Title.ToString());
+
         }
 
         public RelayCommand SaveButton
@@ -28,6 +57,24 @@ namespace Store.ViewModels
                         {
                             App.database.SubmitChanges();
                         }
+                    );
+            }
+        }
+
+        public RelayCommand EditButton
+        {
+            get
+            {
+                return new RelayCommand(
+                        obj =>
+                        {
+                            var f = new ProductWindow(CurrentProduct);
+                            f.ShowDialog();
+                            
+
+
+                        },
+                        x => CurrentProduct != null
                     );
             }
         }
