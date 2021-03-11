@@ -12,7 +12,7 @@ namespace Store.DataBaseModels
     public class Product
     {
         [Column(IsPrimaryKey = true, IsDbGenerated = true)]
-        public int Id { get; set; }
+        public int? Id { get; set; }
         [Column(Name = "Title")]
         public string Title { get; set; }
         [Column(Name = "Price")]
@@ -26,7 +26,10 @@ namespace Store.DataBaseModels
             get { return this._Category.Entity; }
             set { 
                 this._Category.Entity = value;
-                CategoryId = ((Category)value).Id;
+                if (value != null)
+                {
+                    CategoryId = ((Category)value).Id;
+                }
             }
         }
 

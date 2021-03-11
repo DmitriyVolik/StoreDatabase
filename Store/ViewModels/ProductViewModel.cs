@@ -10,10 +10,12 @@ using Store.Views;
 
 namespace Store.ViewModels
 {
-    public class ProductViewModel:BaseViewModel
+    public class ProductViewModel : BaseViewModel
     {
         private Product _product;
         private Product _initialProduct;
+
+        public Product GetProduct() => _product;
 
         public void UpdateInitial()
         {
@@ -66,7 +68,8 @@ namespace Store.ViewModels
         public Category Category
         {
             get => _product.Category;
-            set { 
+            set
+            {
                 _product.Category = value;
                 OnPropertyChanged("CategoryTitle");
             }

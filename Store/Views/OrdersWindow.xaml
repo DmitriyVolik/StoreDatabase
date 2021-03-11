@@ -17,21 +17,21 @@
             <ColumnDefinition Width="50*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <DataGrid Grid.Row="0" Grid.Column="0" SelectedItem ="{Binding CurrentOrder}"  ItemsSource="{Binding Orders}" 
-                  Margin="10,10,0,0" CanUserAddRows="False"
+        <DataGrid IsReadOnly="True" Grid.Row="0" Grid.Column="0" SelectedItem ="{Binding CurrentOrder}"  ItemsSource="{Binding Orders}" 
+                  Margin="5,5,5,5" CanUserAddRows="False"
                   AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Width="30*" Binding="{Binding Path=Id}" />
                 <DataGridTextColumn  Header="Status" Width="20*" Binding="{Binding Path=StatusName}" />
-                <DataGridTextColumn IsReadOnly="True" Header="ClosedDate" Width="50*" Binding="{Binding Path=ClosedDate}" />
+                <DataGridTextColumn IsReadOnly="True" Header="ClosedDate" Width="50*" Binding="{Binding Path=ClosedDate, TargetNullValue=-, StringFormat=\{0:dd.MM.yy HH:mm:ss\}}" />
                 <DataGridTextColumn IsReadOnly="True" Header="UpdatedAt" Width="50*" Binding="{Binding Path=UpdatedAt}" />
             </DataGrid.Columns>
 
         </DataGrid>
 
-        <DataGrid Grid.Row="0" Grid.Column="1" Margin="5,5,5,5" 
+        <DataGrid IsReadOnly="True" Grid.Row="0" Grid.Column="1" Margin="5,5,5,5" 
                   AutoGenerateColumns="False"
-                  ItemsSource="{Binding CurrentOrder.OrderProducts}">
+                  ItemsSource="{Binding CurrentOrderProducts}">
 
             <DataGrid.Columns>
                 <DataGridTextColumn  Header="Title" Width="20*" Binding="{Binding Path=Product.Title}" />
@@ -40,6 +40,10 @@
             </DataGrid.Columns>
 
         </DataGrid>
-
+        <DockPanel Grid.Row="1" Grid.Column="0">
+            <Button  Content="Редактировать" Command="{Binding EditButton}" Width="100"></Button>
+            <Button Content="Добавить" Command="{Binding AddButton}" Width="100"></Button>
+            <Button Content="Закрыть заказ" Command="{Binding CloseButton}" Width="100"></Button>
+        </DockPanel>
     </Grid>
 </Window>

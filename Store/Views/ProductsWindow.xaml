@@ -32,7 +32,8 @@
         </DataGrid>
 
         <StackPanel Grid.Row="0" Grid.Column="1" >
-            <Button Command="{Binding EditButton}" Content="Редактировать" Width="75" />
+            <Button Command="{Binding EditButton}" Content="Редактировать" Width="75" Margin="10,10,10,10" HorizontalAlignment="Center"/>
+            <Button Command="{Binding AddButton}" Content="Добавить" Width="75"  Margin="10,10,10,10" HorizontalAlignment="Center" />
         </StackPanel>
 
     </Grid>

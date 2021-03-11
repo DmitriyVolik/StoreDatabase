@@ -10,9 +10,11 @@ using Store.Views;
 
 namespace Store.ViewModels
 {
-    public class MainMenuViewModel:BaseViewModel
+    public class MainMenuViewModel : BaseViewModel
     {
         private readonly Window _window;
+
+        
 
         public MainMenuViewModel(Window window)
         {
@@ -22,7 +24,7 @@ namespace Store.ViewModels
 
             _window = window;
         }
-        
+
         //private bool _isVisible;
 
         //public bool IsVisible
@@ -41,21 +43,21 @@ namespace Store.ViewModels
         //}
 
         public Window subWindow;
-         
+
 
         public RelayCommand ProductsButton
         {
             get
             {
                 return new RelayCommand(
-                        obj =>
-                        {
-                            subWindow = new ProductsWindow();
-                            subWindow.Owner = Window.GetWindow(_window);
-                            _window.Visibility = Visibility.Hidden;
-                            subWindow.Show();
-                        }
-                    );
+                    obj =>
+                    {
+                        subWindow = new ProductsWindow();
+                        subWindow.Owner = Window.GetWindow(_window);
+                        _window.Visibility = Visibility.Hidden;
+                        subWindow.Show();
+                    }
+                );
             }
         }
 
@@ -64,15 +66,14 @@ namespace Store.ViewModels
             get
             {
                 return new RelayCommand(
-                        obj =>
-                        {
-                            subWindow = new OrdersWindow();
-                            subWindow.Owner = Window.GetWindow(_window);
-                            _window.Visibility = Visibility.Hidden;
-                            subWindow.Show();
-
-                        }
-                    );
+                    obj =>
+                    {
+                        subWindow = new OrdersWindow();
+                        subWindow.Owner = Window.GetWindow(_window);
+                        _window.Visibility = Visibility.Hidden;
+                        subWindow.Show();
+                    }
+                );
             }
         }
     }

@@ -38,6 +38,11 @@ namespace Store.ViewModels
                         obj =>
                         {
                             SaveChanges = true;
+                            var p = Product.GetProduct();
+                            if (p.Id == null)
+                            {
+                                App.database.GetTable<Product>().InsertOnSubmit(p);
+                            }
                             App.database.SubmitChanges();
                             Window.Close();
                         }

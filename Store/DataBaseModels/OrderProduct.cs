@@ -14,20 +14,31 @@ namespace Store.DataBaseModels
         [Column(IsPrimaryKey = true, IsDbGenerated = true)]
         public int Id { get; set; }
         [Column(Name = "ProductId")]
-        public int ProductId { get; set; }
+        public int? ProductId { get; set; }
         [Column(Name = "OrderId")]
         public int OrderId { get; set; }
         [Column(Name = "Quantity")]
         public int Quantity { get; set; }
 
         private EntityRef<Product> _Product;
-        [Association(Storage = "_Product", ThisKey = "ProductId", OtherKey = "Id")]
+        [Association(Storage = "_Product", ThisKey = "ProductId", OtherKey = "Id", IsForeignKey = true)]
         public Product Product
         {
             get { return this._Product.Entity; }
             set
             {
                 this._Product.Entity = value;
+            }
+        }
+        
+        private EntityRef<Order> _Order;
+        [Association(Storage = "_Order", ThisKey = "OrderId", OtherKey = "Id", IsForeignKey = true)]
+        public Order Order
+        {
+            get { return this._Order.Entity; }
+            set
+            {
+                this._Order.Entity = value;
             }
         }
     }

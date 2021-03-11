@@ -4,29 +4,27 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Store"
+        xmlns:wm="clr-namespace:Store.ViewModels"
         mc:Ignorable="d"
-        Title="MainMenu" Height="450" Width="800" 
-        
-        
-        >
-            
+        Title="MainMenu" Height="450" Width="800">
+
     
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition ></RowDefinition>
-       
+            <RowDefinition />
+
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <Button Command="{Binding ProductsButton}" Grid.Column="0" Content="Продукты" HorizontalAlignment="Center" VerticalAlignment="Center" Width="140" Height="64"/>
-        <Button Command="{Binding OrdersButton}" Grid.Column="1" Content="Заказы" HorizontalAlignment="Center" VerticalAlignment="Center" Width="140" Height="64"/>
+        <Button Command="{Binding ProductsButton}" Grid.Column="0" Content="Продукты" HorizontalAlignment="Center"
+                VerticalAlignment="Center" Width="140" Height="64" />
+        <Button Command="{Binding OrdersButton}" Grid.Column="1" Content="Заказы" HorizontalAlignment="Center"
+                VerticalAlignment="Center" Width="140" Height="64" />
 
     </Grid>
 
-  
-
-   
 </Window>

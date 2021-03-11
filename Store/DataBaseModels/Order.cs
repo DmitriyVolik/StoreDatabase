@@ -16,7 +16,7 @@ namespace Store.DataBaseModels
         [Column(Name = "Status")]
         public int Status { get; set; }
         [Column(Name = "ClosedDate")]
-        public DateTime ClosedDate { get; set; }
+        public DateTime? ClosedDate { get; set; }
         [Column(Name = "UpdatedAt")]
         public DateTime UpdatedAt { get; set; }
 

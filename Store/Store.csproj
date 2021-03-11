@@ -147,6 +147,7 @@
     <Compile Include="DataBaseModels\OrderProduct.cs" />
     <Compile Include="DataBaseModels\Order.cs" />
     <Compile Include="DataBaseModels\Product.cs" />
+    <Compile Include="ViewModels\OrderForm.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="ViewModels\ProductForm.cs" />
     <Compile Include="ViewModels\OrdersForm.cs" />
@@ -158,6 +159,9 @@
     <Compile Include="ViewModels\MainMenuViewModel.cs" />
     <Compile Include="ViewModels\ProductsForm.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
+    <Compile Include="Views\OrderWindow.xaml.cs">
+      <DependentUpon>OrderWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProductsWindow.xaml.cs">
       <DependentUpon>ProductsWindow.xaml</DependentUpon>
     </Compile>
@@ -175,6 +179,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\OrderWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ProductsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -48,18 +48,7 @@ namespace Store.ViewModels
 
         }
 
-        public RelayCommand SaveButton
-        {
-            get
-            {
-                return new RelayCommand(
-                        obj =>
-                        {
-                            App.database.SubmitChanges();
-                        }
-                    );
-            }
-        }
+    
 
         public RelayCommand EditButton
         {
@@ -78,5 +67,32 @@ namespace Store.ViewModels
                     );
             }
         }
+
+        public RelayCommand AddButton
+        {
+            get
+            {
+                return new RelayCommand(
+                        obj =>
+                        {
+                            var p = new Product();
+
+                            var f = new ProductWindow(new ProductViewModel(p));
+                            f.ShowDialog();
+                            Products.Clear();
+                            foreach (var item in App.database.GetTable<Product>())
+                            {
+                                Products.Add(new ProductViewModel(item));
+                            }
+                            
+                            
+                            
+
+                        }
+                    );
+            }
+        }
+
+        
     }
 }
